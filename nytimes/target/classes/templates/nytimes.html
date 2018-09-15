@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>NYTimes API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Form</h1>
+    <form action="#" th:action="@{/nytimes}" th:object="${nytimes}" method="post">
+    	<p>Section: 
+    	 <select th:field="*{section}">
+    		<option th:value="'all-sections'" th:text="All-Sections"></option>
+    		<option th:value="'Education'" th:text="Education"></option>
+    		<option th:value="'Arts'" th:text="Arts"></option>
+    		<option th:value="'World'" th:text="World"></option>
+    		<option th:value="'Travel'" th:text="Travel"></option>
+		</select>
+	  	</p>
+        <p>Period:
+        
+        <select th:field="*{period}">
+    		<option th:value="'1'" th:text="1"></option>
+    		<option th:value="'7'" th:text="7"></option>
+    		<option th:value="'30'" th:text="30"></option>
+		</select>
+	  	</p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

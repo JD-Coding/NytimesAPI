@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>NY Times API</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	
+ 
+    
+
+
+
+   <p> 	<a href="/nytimes">Home</a></br>
+          <p th:text="'Section: ' + ${nytimes.section}" /> 
+    <p th:text="'Period: ' + ${nytimes.period}" />
+    </p>
+        <h1>NY Times Most Popular Articles</h1>
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Date Published</th>
+		</tr>
+		<tr th:each="news : ${nytimes.nytimesNews.results}">
+		<td>
+			<a th:href="${news.url}" target='_blank'><p th:text="'' + ${news.title}" /></a>
+					
+			</td>
+				<td th:text="${news.byline}"></td>
+			</td>
+			<td th:text="${news.published_date}"></td>
+		</tr>
+	</table>
+	</p>
+
+	
+    
+</body>
+</html>
